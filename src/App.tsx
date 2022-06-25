@@ -1,30 +1,10 @@
-import { gql, useQuery } from "@apollo/client"
-import { useEffect } from "react"
+import { Events } from "./pages/Events"
 
-const GET_LESSONS_QUERY = gql `
-    query {
-        lessons {
-            id
-            title
-          }
-      }
-`
-interface lesson {
-    id: string;
-    title: string;
-  }
 
 function App() {
-  const { data } = useQuery<{ lessons: lesson[] }>(GET_LESSONS_QUERY)
-  console.log(data)
-
   return (
-    <ul>
-      {data?.lessons.map(lesson => {
-          return <li key={lesson.id} >{lesson.title}</li>
-        })}
-    </ul>
-  )
+    <Events/>
+    )
 }
 
 export default App
